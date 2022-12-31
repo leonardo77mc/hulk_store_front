@@ -1,0 +1,56 @@
+<div class="container">
+
+  <!-- Menu -->
+  <section id="menu">
+
+    <div id="hearder-menu"></div>
+    <div id="logo"></div>
+    <div id="current-money"></div>
+    <div id="content-menu">
+
+      <ul class="collapsible">
+        <li *ngFor="let ih of menuList">
+          <div class="collapsible-header cursor">
+            {{ih.title}}
+          </div>
+          <div class="collapsible-body">
+            <ul class="collection" *ngFor="let ic of ih.body">
+              <li *ngIf="ic.target!=='modal-create-section'" class="collection-item cursor"
+                  (click)="optionPage(ic)">{{ic.title}}</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Vistas -->
+  <section id="vistas">
+
+    <header id="header">
+
+      <div class="ContentPage-Nav full-width">
+        <ul class="full-width">
+          <li class="btn-MobileMenu ShowHideMenu"><a href="#" class="tooltipped waves-effect waves-light"
+                                                     data-position="bottom" data-delay="50" data-tooltip="Menu"><i
+            class="zmdi zmdi-more-vert"></i></a></li>
+          <li style="cursor: pointer;" class="dropdown-trigger" data-target="menu-logout">
+            <figure><img src="./assets/logo.jfif" alt="UserImage"></figure>
+          </li>
+          <li style="position: relative; width: 57px; cursor: pointer;" (click)="logout()" class="modal-trigger"
+              data-target="modal-report">
+            <p>
+              <i class="material-icons" style="position: absolute; left: 11px; top: 14px;">shopping_cart</i>
+              <span style="position: absolute; top: 0px; left: 37px;"></span>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+    </header>
+    <div id="content">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+</div>

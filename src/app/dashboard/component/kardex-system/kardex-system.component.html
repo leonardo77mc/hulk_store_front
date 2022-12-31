@@ -1,0 +1,83 @@
+<div id="content-store">
+  <table>
+    <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Descripcion</th>
+      <th>Entradas</th>
+      <th>Salidas</th>
+      <th>Saldos</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td>{{product.createAt}}</td>
+      <td>{{product.article}}</td>
+      <td>
+
+        <table>
+          <thead>
+          <tr>
+            <th>Cantidad</th>
+            <th>Costo Unidad</th>
+            <th>Costo Total</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td>{{product?.stock}}</td>
+            <td>{{product?.price | number}}</td>
+            <td>{{product?.price * product?.stock | number}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </td>
+      <td>
+
+        <table>
+          <thead>
+          <tr>
+            <th>Cantidad</th>
+            <th>Costo Unidad</th>
+            <th>Costo Total</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let purchase of product?.purchases">
+            <td>{{purchase.quantity}}</td>
+            <td>{{product?.price | number}}</td>
+            <td>{{product?.price * purchase?.quantity | number}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </td>
+      <td>
+
+        <table>
+          <thead>
+          <tr>
+            <th>Cantidad</th>
+            <th>Costo Unidad</th>
+            <th>Costo Total</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td>30/12/2022</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

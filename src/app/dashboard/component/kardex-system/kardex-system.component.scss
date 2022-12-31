@@ -1,0 +1,12 @@
+#content-store {
+  ::ng-deep {
+    th {
+      text-align: center;
+      border: 0.4px solid lightgray;
+      background: lightgrey;
+    }
+    td {
+      text-align: center;
+    }
+  }
+}

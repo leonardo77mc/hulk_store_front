@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m5 l5">
+      <mat-form-field appearance="fill">
+        <mat-label>Seleccciona un producto:</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option *ngFor="let item of productListSelect" [value]="item">{{item.article}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div id="container-table-product">
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Articulo</th>
+      <th>Referencia</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Lote</th>
+      <th>Provedor</th>
+      <th>Vender</th>
+      <th>Reporte Kardex(PEPS)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of productList">
+      <td *ngIf="selected?.reference === product?.reference">{{product.id}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.article}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.reference}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.price}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.stock}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.lote}}</td>
+      <td *ngIf="selected?.reference === product?.reference">{{product.providers}}</td>
+      <td *ngIf="selected?.reference === product?.reference">
+        <i class="material-icons">
+          <button class="btn blue white-text" (click)="selectArticle(product)">Vender</button>
+        </i>
+      </td>
+      <td *ngIf="selected?.reference === product?.reference">
+        <i class="material-icons cursor" (click)="seeReport(product)">remove_red_eye</i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
